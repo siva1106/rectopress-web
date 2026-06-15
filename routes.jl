@@ -4,7 +4,7 @@ using Genie.Renderer.Html
 using SQLite
 using DataFrames
 
-# 1. Initialize SQLite Database
+# 1. Initialize SQLite Database (Kept for your Home Page projects only)
 if !isdir("db")
     mkdir("db")
 end
@@ -32,21 +32,22 @@ if results[1, :count] == 0
         ("Apex Industrial Portal", "Robust manufacturing enterprise portal with zero-lag UI.", "Industry", "An industrial machinery showcase portal featuring responsive CAD viewers and robust quote-request forms, built for global manufacturers.", "https://rectopress.com"))
 end
 
-# 2. Dynamic Home Page Route
-route("/") do
-    # Fetch projects from the database
-    projects_df = DataFrame(SQLite.DBInterface.execute(db, "SELECT * FROM projects"))
-    
-    # Read the raw HTML file explicitly
-    template = read("app/views/home.jl.html", String)
-    
-    # Render the template with the database data
-    html(template, projects = eachrow(projects_df))
-end
-
 # Serve CSS file explicitly
 route("/css/style.css") do
     serve_static_file("css/style.css")
+end
+
+# Serve the Logo explicitly
+route("/img/logo.png") do
+    serve_static_file("img/logo.png")
+end
+
+# 2. Page Routes
+# The Home Page
+route("/") do
+    projects_df = DataFrame(SQLite.DBInterface.execute(db, "SELECT * FROM projects"))
+    template = read("app/views/home.jl.html", String)
+    html(template, projects = eachrow(projects_df))
 end
 
 # The Services Page
@@ -54,7 +55,7 @@ route("/services") do
     read("app/views/services.jl.html", String)
 end
 
-# The Contact Page
+# The Contact Page (GET only) - Reads the embedded Google Form template
 route("/contact") do
     read("app/views/contact.jl.html", String)
 end
