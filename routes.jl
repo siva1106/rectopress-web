@@ -4,7 +4,12 @@ using Genie.Renderer.Html
 using SQLite
 using DataFrames
 
-# 1. Initialize SQLite Database (Kept for your Home Page projects only)
+# --- Force Render Deployment Settings ---
+Genie.config.server_host = "0.0.0.0"
+Genie.config.server_port = parse(Int, get(ENV, "PORT", "8000"))
+# ----------------------------------------
+
+# 1. Initialize SQLite Database
 if !isdir("db")
     mkdir("db")
 end
