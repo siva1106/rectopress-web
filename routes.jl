@@ -42,6 +42,11 @@ route("/img/logo.png") do
     serve_static_file("img/logo.png")
 end
 
+# Serve the Favicon explicitly
+route("/favicon.ico") do
+    serve_static_file("img/logo.png")
+end
+
 # 2. Page Routes
 # The Home Page
 route("/") do
