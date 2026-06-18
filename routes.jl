@@ -4,10 +4,8 @@ using Genie.Renderer.Html
 using SQLite
 using DataFrames
 
-# --- Force Render Deployment Settings ---
-Genie.config.server_host = "0.0.0.0"
-Genie.config.server_port = parse(Int, get(ENV, "PORT", "8000"))
-# ----------------------------------------
+# Tell Genie to automatically serve EVERYTHING in the public folder without warnings
+Genie.config.server_handle_static_files = true
 
 # 1. Initialize SQLite Database
 if !isdir("db")
@@ -37,35 +35,17 @@ if results[1, :count] == 0
         ("Apex Industrial Portal", "Robust manufacturing enterprise portal with zero-lag UI.", "Industry", "An industrial machinery showcase portal featuring responsive CAD viewers and robust quote-request forms, built for global manufacturers.", "https://rectopress.com"))
 end
 
-# Serve CSS file explicitly
-route("/css/style.css") do
-    serve_static_file("css/style.css")
-end
-
-# Serve the Logo explicitly
-route("/img/logo.png") do
-    serve_static_file("img/logo.png")
-end
-
-# Serve the Favicon explicitly
-route("/favicon.ico") do
-    serve_static_file("img/logo.png")
-end
-
 # 2. Page Routes
-# The Home Page
 route("/") do
     projects_df = DataFrame(SQLite.DBInterface.execute(db, "SELECT * FROM projects"))
     template = read("app/views/home.jl.html", String)
     html(template, projects = eachrow(projects_df))
 end
 
-# The Services Page
 route("/services") do
     read("app/views/services.jl.html", String)
 end
 
-# The Contact Page (GET only) - Reads the embedded Google Form template
 route("/contact") do
     read("app/views/contact.jl.html", String)
 end
