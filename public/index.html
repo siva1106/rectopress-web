@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recto Press | Elevating Your Digital Presence</title>
-    <!-- Notice there is no / at the beginning now -->
+    <title>Recto Press | Digital Excellence</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body>
     <nav class="navbar">
         <a href="index.html" class="logo-container">
-            <img src="img/logo.png" alt="Recto Press Logo" class="logo-icon">
+            <img src="img/logo.png" alt="Logo" class="logo-icon">
             <div class="logo-text-wrapper">
-                <div class="logo-text">
-                    <span class="logo-recto">Recto</span> <span class="logo-press">Press</span>
-                </div>
-                <div class="nav-tagline">"We are always on the front page, setting the standard."</div>
+                <div class="logo-text"><span class="logo-recto">Recto</span> <span class="logo-press">Press</span></div>
+                <div class="nav-tagline">"We are always on the front page."</div>
             </div>
         </a>
-        <ul class="nav-links">
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -29,12 +29,18 @@
     <div class="hero">
         <div class="hero-text">
             <h1>Elevating Your<br>Digital Presence.</h1>
-            <p>At Recto Press, I engineer bespoke digital experiences that captivate audiences and drive measurable growth for your brand. Every pixel is meticulously crafted to reflect your unique identity, ensuring your first impression is unforgettable. Let's create a digital platform that actively defines industry standards.</p>
+            <p>At Recto Press, I engineer bespoke digital experiences that captivate audiences and drive growth. Every pixel is crafted to reflect your unique identity and define industry standards.</p>
             <a href="services.html" class="btn-primary">Explore Services &rarr;</a>
         </div>
         <div class="hero-image">
-            <img src="img/logo.png" alt="Recto Press 3D Logo">
+            <img src="img/logo.png" alt="Logo">
         </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
