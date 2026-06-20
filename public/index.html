@@ -9,15 +9,18 @@
     <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body>
-    <nav class="navbar">
-        <!-- The Left-side Hamburger Button -->
+   <nav class="navbar">
+        <!-- 1. Checkbox for Logic -->
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        
+        <!-- 2. The Button (Hamburger) -->
         <label for="menu-toggle" class="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </label>
 
+        <!-- 3. The Brand Group (Logo + Name + Tagline) -->
         <a href="index.html" class="logo-container">
             <img src="img/logo.png" alt="Recto Press Logo" class="logo-icon">
             <div class="logo-text-wrapper">
@@ -28,6 +31,7 @@
             </div>
         </a>
 
+        <!-- 4. Navigation Links -->
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -38,9 +42,10 @@
     <div class="hero">
         <div class="hero-text">
             <h1>Elevating Your<br>Digital Presence.</h1>
-            <p>At Recto Press, I engineer bespoke digital experiences that captivate audiences and drive measurable growth for your brand...</p>
+            <p>At Recto Press, I engineer bespoke digital experiences that captivate audiences and drive measurable growth for your brand. Every pixel is meticulously crafted to reflect your unique identity, ensuring your first impression is unforgettable. Let's create a digital platform that actively defines industry standards.</p>
             <a href="services.html" class="btn-primary">Explore Services &rarr;</a>
         </div>
+        <!-- Logo is second in HTML, so CSS "order: 2" puts it at the bottom on mobile -->
         <div class="hero-image">
             <img src="img/logo.png" alt="Recto Press 3D Logo">
         </div>

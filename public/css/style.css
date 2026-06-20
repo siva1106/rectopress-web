@@ -8,16 +8,81 @@ body {
     min-height: 100vh;
 }
 
-/* --- Navbar & Mobile Menu --- */
+/* --- Optimized Header --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 5%;
+    padding: 1rem 5%;
     background: #0b1a30; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    position: relative;
-    z-index: 100;
+    position: sticky; /* Keeps it at the top while scrolling */
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-toggle { display: none; }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 15px; /* Gap between menu and logo */
+}
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    text-decoration: none;
+}
+.logo-icon { width: 40px; height: 40px; border-radius: 50%; background: #fff; object-fit: cover; }
+.logo-text-wrapper { display: flex; flex-direction: column; }
+.logo-text { font-size: 1.3rem; line-height: 1; }
+.logo-recto { color: #ffffff; font-weight: 800; }
+.logo-press { color: #829ab1; font-weight: 400; }
+.nav-tagline { font-size: 0.6rem; color: #93c5fd; font-style: italic; margin-top: 3px; max-width: 180px; line-height: 1.2; }
+
+.nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+.nav-links a { color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: 0.3s; }
+
+/* --- Mobile Logic --- */
+@media (max-width: 768px) {
+    .navbar { justify-content: flex-start; padding: 0.8rem 1rem; } /* Groups everything to the left */
+    
+    .hamburger { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Fully off-screen */
+        width: 75%;
+        height: 100vh;
+        background: #0b1a30;
+        flex-direction: column;
+        padding: 5rem 2rem;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    .menu-toggle:checked ~ .nav-links { left: 0; }
+
+    /* Hero adjustments for mobile */
+    .hero { flex-direction: column; text-align: center; padding: 3rem 5%; }
+    .hero-text { order: 1; margin-bottom: 0; }
+    .hero-image { order: 2; margin-top: 1rem; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-image img { max-width: 220px; }
+    
+    /* Make the tagline wrap nicely on small screens */
+    .nav-tagline { font-size: 0.55rem; white-space: normal; }
 }
 
 /* The Hamburger (Hidden on Desktop) */

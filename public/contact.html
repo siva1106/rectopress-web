@@ -9,8 +9,18 @@
     <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body>
-    <nav class="navbar">
-        <!-- Removed leading slashes -->
+   <nav class="navbar">
+        <!-- 1. Checkbox for Logic -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        
+        <!-- 2. The Button (Hamburger) -->
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- 3. The Brand Group (Logo + Name + Tagline) -->
         <a href="index.html" class="logo-container">
             <img src="img/logo.png" alt="Recto Press Logo" class="logo-icon">
             <div class="logo-text-wrapper">
@@ -20,8 +30,9 @@
                 <div class="nav-tagline">"We are always on the front page, setting the standard."</div>
             </div>
         </a>
+
+        <!-- 4. Navigation Links -->
         <ul class="nav-links">
-            <!-- Removed leading slashes -->
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
