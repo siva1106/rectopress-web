@@ -160,72 +160,49 @@ body {
 .page-header { text-align: center; padding: 4rem 5% 1rem 5%; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 5% 5rem 5%; }
 .service-card { background: #fff; padding: 2rem; border-radius: 15px; border: 1px solid #eef2f8; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-/* --- Footer Styling --- */
+/* --- Ultra-Slim Footer Styling --- */
 .footer {
-    background: #081324; /* An ultra-dark navy for contrast */
-    color: #f8fafc;
-    padding: 4rem 5% 1.5rem 5%;
+    background: #0b1a30; /* Exact same dark navy as the header */
+    padding: 1.2rem 5%; /* Exact same padding as the header */
     margin-top: 5rem;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.05); /* Slight shadow pointing up */
 }
 .footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    border-bottom: 1px solid #1e293b;
-    padding-bottom: 3rem;
 }
-.footer-brand .footer-logo {
+.footer-logo {
     display: flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
     color: #ffffff;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    margin-bottom: 1rem;
 }
-.footer-brand img { 
-    width: 35px; 
-    height: 35px; 
+.footer-logo img { 
+    width: 30px; /* Slightly smaller than the header logo */
+    height: 30px; 
     border-radius: 50%; 
     background: #fff;
     object-fit: cover;
 }
-.footer-brand p { 
+.footer-bottom { 
     color: #829ab1; 
-    font-size: 0.95rem; 
-    font-style: italic; 
-    max-width: 300px; 
-    line-height: 1.6;
+    font-size: 0.85rem;
 }
-
-.footer h3 { color: #ffffff; font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 600;}
-.footer-links ul { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: 0.8rem; }
-.footer-links a, .footer-contact a { 
-    color: #829ab1; 
-    text-decoration: none; 
-    transition: 0.3s; 
-    font-size: 0.95rem;
-}
-.footer-links a:hover, .footer-content {
-    display: flex;
-    justify-content: space-between; /* Pushes logo to left, links to right */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-bottom: 1px solid #1e293b;
-    padding-bottom: 3rem;
+.footer-bottom p {
+    margin: 0; /* Removes default paragraph spacing to keep footer slim */
 }
 
 /* Mobile adjustments for Footer */
 @media (max-width: 768px) {
     .footer-content { 
         flex-direction: column; 
-        gap: 2.5rem; 
+        gap: 0.8rem; 
         text-align: center; 
     }
-    .footer-brand .footer-logo { justify-content: center; }
 }
